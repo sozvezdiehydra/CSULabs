@@ -1,0 +1,17 @@
+﻿<Window x:Class="rpninterface.MainWindow"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:oxyPlot="using: OxyPlot.Windows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:rpninterface"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000">
+    <Grid>
+        <oxy:PlotView x:Name="plotView"/>
+        <Button Width="100" Height="50" Click="drawGraphic" Background="Blue" Margin="378,10,522,374" VerticalAlignment="Center">name</Button>
+        <TextBox Height="50" Width="200" Name="tbInput" Margin="65,10,735,374" Background="#FFD4A7A7">Expression</TextBox>
+        <TextBox Height="50" Width="50" Name="tbInputX" Margin="288,10,662,374" Background="#FFD4A7A7">X</TextBox>
+    </Grid>
+</Window>
