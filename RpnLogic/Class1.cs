@@ -42,6 +42,7 @@
                 case '-': return 1;
                 case '*': return 2;
                 case '/': return 2;
+                case '^': return 4;
                 default: return 3;
             }
         }
@@ -89,7 +90,7 @@
                 {
                     number += ",";
                 }
-                else if (c == '+' || c == '-' || c == '*' || c == '/')
+                else if (c == '+' || c == '-' || c == '*' || c == '/' || c == '^')
                 {
                     if (number != string.Empty)
                     {
@@ -205,6 +206,9 @@
                     break;
                 case '/':
                     result = second / first;
+                    break;
+                case '^':
+                    result = Math.Pow(second, first);
                     break;
             }
 
