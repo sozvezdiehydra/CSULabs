@@ -1,75 +1,7 @@
-﻿namespace RpnLogic
+﻿using RpnLogic.Tokens;
+
+namespace RpnLogic
 {
-
-    public class Token
-    {
-
-    }
-
-    public class Number : Token
-    {
-        public double Value { get; }
-        public char ValueX { get; }
-
-        public Number(double value)
-        {
-            Value = value;
-        }
-
-        public Number(char valueX)
-        {
-            ValueX = valueX;
-        }
-
-        public static bool CheckX(char valueX)
-        {
-            return valueX is 'x' or 'X';
-        }
-    }
-
-    class Function(string name, int arguments) : Token
-    {
-        public string Name { get; init; } = name;
-        public int Arguments { get; init; } = arguments;
-    }
-    record class FunctionProperties(string Name, int Arguments);
-
-    class SeparateArgument : Token
-    {
-    }
-
-    class Operation(char symbol) : Token
-    {
-        public char Symbol { get; } = symbol;
-        public int Priority { get; } = GetPriority(symbol);
-
-        private static int GetPriority(char symbol)
-        {
-            switch (symbol)
-            {
-                case '(': return 0;
-                case ')': return 0;
-                case '+': return 1;
-                case '-': return 1;
-                case '*': return 2;
-                case '/': return 2;
-                case '^': return 3;
-                default: return 4;
-            }
-        }
-
-        public static explicit operator char(Operation v)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    class Parenthesis(char symbol) : Token
-    {
-        public bool isClosing { get; set; } = symbol == ')';
-
-
-    }
 
     public class RpnCalculator
     {
@@ -113,11 +45,8 @@
         }
         private List<Token> Tokenize(string input)
         {
-            // теперь сюда?
-            // да, у нас здесь начало, по идее
             List<Token> tokens = new List<Token>();
             string number = string.Empty;
-            // vs херово работает)
             for(int i = 0; i < input.Length; i++)
             {
                 char c = input[i]; 
