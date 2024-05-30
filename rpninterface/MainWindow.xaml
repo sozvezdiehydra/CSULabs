@@ -8,10 +8,17 @@
         xmlns:local="clr-namespace:rpninterface"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="1000">
-    <Grid>
-        <oxy:PlotView x:Name="plotView"/>
-        <Button Width="100" Height="50" Click="drawGraphic" Background="Blue" Margin="378,10,522,374" VerticalAlignment="Center">name</Button>
-        <TextBox Height="50" Width="200" Name="tbInput" Margin="65,10,735,374" Background="#FFD4A7A7">Expression</TextBox>
-        <TextBox Height="50" Width="50" Name="tbInputX" Margin="288,10,662,374" Background="#FFD4A7A7">X</TextBox>
+    <Grid x:Name="myGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="24*"/>
+        </Grid.ColumnDefinitions>
+        <oxy:PlotView x:Name="plotView" Background="#FFC0B9DD" Grid.ColumnSpan="2"/>
+
+        <Button Width="100" Height="50" Click="drawGraphic" Background="#FF4054A0" Margin="738,10,122,0" VerticalAlignment="Top" Grid.Column="1">name</Button>
+        <TextBox Height="50" Width="200" Name="tbInput" Margin="25,10,735,374" Background="#FF4054A0" Grid.Column="1">Expression</TextBox>
+        <TextBox Height="50" Width="50" Name="tbStep" Margin="249,10,661,374" Background="#FF4054A0" Grid.Column="1">Step</TextBox>
+        <TextBox Height="50" Width="50" Name="tbFrom" Margin="322,10,588,374" Background="#FF4054A0" Grid.Column="1">From</TextBox>
+        <TextBox Height="50" Width="50" Name="tbTo" Margin="393,10,517,374" Background="#FF4054A0" Grid.Column="1">To</TextBox>
     </Grid>
 </Window>

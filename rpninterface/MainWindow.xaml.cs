@@ -1,5 +1,6 @@
 ﻿using OxyPlot;
 using OxyPlot.Axes;
+using OxyPlot.Wpf;
 using OxyPlot.Legends;
 using OxyPlot.Series;
 using RpnLogic;
@@ -18,8 +19,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.WebSockets;
-using OxyPlot.Wpf;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace rpninterface
 {
@@ -32,27 +31,31 @@ namespace rpninterface
         {
             InitializeComponent();
         }
-
         private void drawGraphic(object sender, RoutedEventArgs e)
         {
             string input = tbInput.Text;
-            int inputX = int.Parse(tbInputX.Text);
+            //double inputX = 1; //double.Parse(tbInputX.Text);
+            double stepX = double.Parse(tbStep.Text);
+            double stepFrom = double.Parse(tbFrom.Text);
+            double stepTo = double.Parse(tbTo.Text);
+
 
             // Create a line series to represent the function
             var lineSeries = new LineSeries
             {
-                StrokeThickness = 2.3,
+                StrokeThickness = 2,
                 //MarkerType = MarkerType.Star,
-                MarkerSize = 4,
-                MarkerStroke = OxyColors.Black
+                //MarkerSize = 4,
+                //MarkerStroke = OxyColors.Red,
+                Color = OxyColors.Black
             };
 
-            // Generate points for the function
-            for (int x = -70; x <= 70; x++)
+            for (double x = stepFrom; x <= stepTo; x+=stepX)
             {
                 double y = new RpnCalculator(input, x).Result;
                 lineSeries.Points.Add(new DataPoint(x, y));
             }
+
 
 
             var plotModel = new PlotModel();
@@ -63,27 +66,28 @@ namespace rpninterface
             var linearAxis = new LinearAxis
             {
                 Title = "Y",
-                AxislineColor = OxyColors.Black,
+                AxislineColor = OxyColors.Red,
                 Maximum = 40,
                 Minimum = -40,
                 PositionAtZeroCrossing = true,
-                TickStyle = TickStyle.Crossing
+                TickStyle = TickStyle.Crossing,
+                IsAxisVisible = true,
             };
             plotModel.Axes.Add(linearAxis);
 
             var secondLinearAxis = new LinearAxis
             {
                 Title = "X",
-                AxislineColor = OxyColors.Black,
+                AxislineColor = OxyColors.Red,
                 Maximum = 40,
                 Minimum = -40,
                 PositionAtZeroCrossing = true,
                 Position = AxisPosition.Bottom,
-                TickStyle = TickStyle.Crossing
+                TickStyle = TickStyle.Crossing,
+                IsAxisVisible = true,
             };
             plotModel.Axes.Add(secondLinearAxis);
             plotView.Model = plotModel;
-
         }
     }
 }
