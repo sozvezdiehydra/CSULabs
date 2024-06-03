@@ -23,7 +23,7 @@ namespace RpnLogic
                 new FunctionProperties("ln", 1),
                 new FunctionProperties("lg", 1),
                 new FunctionProperties("sqrt", 1),
-                new FunctionProperties("Asqrt", 2),
+                new FunctionProperties("root", 2),
                 new FunctionProperties("exp", 1),
                 new FunctionProperties("sign", 1),
                 new FunctionProperties("Acos", 1),
@@ -50,7 +50,6 @@ namespace RpnLogic
             for(int i = 0; i < input.Length; i++)
             {
                 char c = input[i]; 
-
                 if (char.IsDigit(c))
                 {
                     number += c; 
@@ -294,8 +293,7 @@ namespace RpnLogic
                             result = Math.Sin(arguments[0]);
                             break;
                         case "log":
-                            // тут сначала число, потом основание
-                            result = Math.Log(arguments[0], arguments[1]);
+                            result = Math.Log(arguments[0], arguments[1]); // тут сначала число, потом основание
                             break;
                         case "tg":
                             result = Math.Tan(arguments[0]);
@@ -325,7 +323,7 @@ namespace RpnLogic
                         case "arctg":
                             result = Math.Atan(arguments[0]);
                             break;
-                        case "Asqrt":
+                        case "root":
                             result = Math.Pow(arguments[0], 1 / arguments[1]);
                             break;
                             throw new ArgumentException("No suitable function");

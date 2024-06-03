@@ -11,7 +11,7 @@
     <Grid x:Name="myGrid">
         <oxy:PlotView x:Name="plotView" Background="#FFC0B9DD" Grid.ColumnSpan="3"/>
 
-        <Button Height="39" Click="drawGraphic" Background="White" Margin="1116,10,44,0" VerticalAlignment="Top" FontFamily="Arial Black">Draw</Button>
+        <Button Height="39" Click="drawGraphic" Background="White" Margin="1116,0,44,0" VerticalAlignment="Top" FontFamily="Arial Black">Draw</Button>
         <TextBox Height="50" Width="200" Name="tbInput" Margin="10,10,1090,624" Background="White" TextAlignment="Center" FontFamily="Arial Black" MouseEnter="tbInput_MouseEnter">Expression</TextBox>
         <TextBox Name="tbStep" Margin="235,10,1009,624" Background="White" FontFamily="Arial Black" MouseEnter="tbStep_MouseEnter">Step</TextBox>
         <TextBox Name="tbFrom" Margin="296,10,948,624" Background="White" FontFamily="Arial Black" MouseEnter="tbFrom_MouseEnter_1">From</TextBox>
