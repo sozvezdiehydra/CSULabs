@@ -89,6 +89,38 @@ namespace rpninterface
             plotModel.Axes.Add(secondLinearAxis);
             plotView.Model = plotModel;
         }
+
+        private void tbInput_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (tbInput.Text == "Expression")
+            {
+                tbInput.Clear();    
+            }
+        }
+
+        private void tbStep_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (tbStep.Text == "Step")
+            {
+                tbStep.Clear();
+            }
+        }
+
+        private void tbFrom_MouseEnter_1(object sender, MouseEventArgs e)
+        {
+            if (tbFrom.Text == "From")
+            {
+                tbFrom.Clear();
+            }
+        }
+
+        private void tbTo_MouseEnter_1(object sender, MouseEventArgs e)
+        {
+            if (tbTo.Text == "To")
+            {
+                tbTo.Clear();
+            }
+        }
     }
 }
 

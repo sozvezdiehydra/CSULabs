@@ -7,18 +7,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:rpninterface"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1000">
+        Title="Graphic Drawer" Height="700" Width="1300">
     <Grid x:Name="myGrid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="24*"/>
-        </Grid.ColumnDefinitions>
-        <oxy:PlotView x:Name="plotView" Background="#FFC0B9DD" Grid.ColumnSpan="2"/>
+        <oxy:PlotView x:Name="plotView" Background="#FFC0B9DD" Grid.ColumnSpan="3"/>
 
-        <Button Width="100" Height="50" Click="drawGraphic" Background="#FF4054A0" Margin="738,10,122,0" VerticalAlignment="Top" Grid.Column="1">name</Button>
-        <TextBox Height="50" Width="200" Name="tbInput" Margin="25,10,735,374" Background="#FF4054A0" Grid.Column="1">Expression</TextBox>
-        <TextBox Height="50" Width="50" Name="tbStep" Margin="249,10,661,374" Background="#FF4054A0" Grid.Column="1">Step</TextBox>
-        <TextBox Height="50" Width="50" Name="tbFrom" Margin="322,10,588,374" Background="#FF4054A0" Grid.Column="1">From</TextBox>
-        <TextBox Height="50" Width="50" Name="tbTo" Margin="393,10,517,374" Background="#FF4054A0" Grid.Column="1">To</TextBox>
+        <Button Height="39" Click="drawGraphic" Background="White" Margin="1116,10,44,0" VerticalAlignment="Top" FontFamily="Arial Black">Draw</Button>
+        <TextBox Height="50" Width="200" Name="tbInput" Margin="10,10,1090,624" Background="White" TextAlignment="Center" FontFamily="Arial Black" MouseEnter="tbInput_MouseEnter">Expression</TextBox>
+        <TextBox Name="tbStep" Margin="235,10,1009,624" Background="White" FontFamily="Arial Black" MouseEnter="tbStep_MouseEnter">Step</TextBox>
+        <TextBox Name="tbFrom" Margin="296,10,948,624" Background="White" FontFamily="Arial Black" MouseEnter="tbFrom_MouseEnter_1">From</TextBox>
+        <TextBox Name="tbTo" Margin="357,10,887,624" Background="White" FontFamily="Arial Black" MouseEnter="tbTo_MouseEnter_1">To</TextBox>
     </Grid>
 </Window>
